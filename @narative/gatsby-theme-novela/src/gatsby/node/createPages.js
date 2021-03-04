@@ -215,13 +215,13 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     if (articlesThatArentSecret.length === 1) next = [];
 
     createPage({
-      path: article.slug,
+      path: `${basePath}/${article.slug}`,
       component: templates.article,
       context: {
         article,
         authors: authorsThatWroteTheArticle,
         basePath,
-        permalink: `${data.site.siteMetadata.siteUrl}${article.slug}/`,
+        permalink: `${data.site.siteMetadata.siteUrl}${basePath}/${article.slug}/`,
         slug: article.slug,
         id: article.id,
         title: article.title,
